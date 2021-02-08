@@ -26,6 +26,7 @@ namespace Choose_Your_Class
 
             do
             {
+                car.Tick();
 
                 Console.WriteLine("1. See the overall status of your car.");
                 Console.WriteLine("2. Paint a different color");
@@ -33,7 +34,8 @@ namespace Choose_Your_Class
                 Console.WriteLine("4. Let out all tire pressure.");
                 Console.WriteLine("5. Change oil.");
                 Console.WriteLine("6. Dump Oil.");
-                Console.WriteLine("7. Exit the repair shop.");
+                Console.WriteLine("7. Check how many days your car has been in the shop.");
+                Console.WriteLine("8. Exit the repair shop.");
 
                 string userChoice = Console.ReadLine().ToUpper();
                 Console.Clear();
@@ -83,6 +85,10 @@ namespace Choose_Your_Class
                         break;
 
                     case "7":
+                        Console.WriteLine($"Your car has been here for {car.DaysInShop} days.");
+                        break;
+
+                    case "8":
                         ServiceShop = false;
                         Console.WriteLine("See you next time!");
                         break;

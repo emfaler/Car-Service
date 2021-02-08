@@ -21,7 +21,7 @@ namespace Choose_Your_Class
         public string Color { get; set; }
         public string Make { get; set; }
         public string Model { get; set; }
-        //public int DaysInShop { get; set; }
+        public int DaysInShop { get; set; } = 0;
 
 
 
@@ -85,6 +85,18 @@ namespace Choose_Your_Class
             Color = color;
             return Color;
         }
+
+        public int GetDays()
+        {
+            return DaysInShop;
+        }
+
+        public void Tick()
+        {
+            DaysInShop += 1;
+        }
+
+
 
 
         
