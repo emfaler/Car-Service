@@ -28,11 +28,6 @@ namespace Choose_Your_Class
 
             return ListofCars[indexSelected - 1];
 
-
-
-
-
-
         }
 
 

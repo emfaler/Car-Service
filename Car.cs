@@ -44,17 +44,6 @@ namespace Choose_Your_Class
             return Make;
         }
 
-
-        public int GetPressure()
-        {
-            return Pressure;
-        }
-
-        public int GetOil()
-        {
-            return OilLevel;
-        }
-
         public string GetColor()
         {
             return Color;
@@ -69,6 +58,19 @@ namespace Choose_Your_Class
         {
             return Model;
         }
+
+
+        public int GetPressure()
+        {
+            return Pressure;
+        }
+
+        public int GetOil()
+        {
+            return OilLevel;
+        }
+
+        
         public void ChangeOil()
         {
             OilLevel += 25;

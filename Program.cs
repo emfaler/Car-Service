@@ -32,7 +32,7 @@ namespace Choose_Your_Class
 
             do
             {
-                myCar.Tick();
+                //myCar.Tick();
 
                 Console.WriteLine("1. See the overall status of your cars.");
                 Console.WriteLine("2. Paint a different color");
@@ -54,7 +54,7 @@ namespace Choose_Your_Class
                         //    $"Oil Life:{car.GetOil()}\nTire Pressure:{car.GetPressure()}");
                         foreach (var item in myGarage.ListofCars)
                         {
-                            Console.WriteLine($"{myCar.GetColor()} {myCar.GetMake()} {myCar.GetModel()}");
+                            Console.WriteLine($"{item.GetColor()} {item.GetMake()} {item.GetModel()}");
                         }
                         break;
 
