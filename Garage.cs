@@ -17,7 +17,7 @@ namespace Choose_Your_Class
         {
             int index = 1;
 
-            Console.WriteLine("Please select an account from the list:");
+            Console.WriteLine("Please select a car from the list:");
             foreach (Car car in ListofCars)
             {
                 Console.WriteLine($"{index}. {car.Color} {car.Make} {car.Model}");

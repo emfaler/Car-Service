@@ -7,20 +7,7 @@ namespace Choose_Your_Class
         static void Main(string[] args)
         {
 
-            //Console.WriteLine("Welcome to the car repair shop.\nPlease enter some info about your car and we can get started.");
-            //Console.WriteLine("Enter the make of the car.");
-            //car.SetMake(Console.ReadLine());
-            //Console.WriteLine("Enter the model of the car.");
-            //car.SetModel(Console.ReadLine());
-            //Console.WriteLine("Enter the color of your car.");
-            //car.SetColor(Console.ReadLine());
-            //Console.Clear();
-            //Console.WriteLine($"Your {car.Color} {car.Make} {car.Model} is now in the shop");
-            //Console.WriteLine("Press enter to view service options");
-            //Console.ReadKey();
-            //Console.Clear();
 
-            //Service Menu
 
             Garage myGarage = new Garage();
 
@@ -32,17 +19,17 @@ namespace Choose_Your_Class
 
             do
             {
-                //myCar.Tick();
+                myCar.Tick();
 
-                Console.WriteLine("1. See the overall status of your cars.");
+                Console.WriteLine("1. Check the overall status of a vehicle.");
                 Console.WriteLine("2. Paint a different color");
                 Console.WriteLine("3. Add air pressure to tires");
                 Console.WriteLine("4. Let out all tire pressure.");
-                Console.WriteLine("5. Change oil.");
+                Console.WriteLine("5. Add oil.");
                 Console.WriteLine("6. Dump Oil.");
                 Console.WriteLine("7. Check how many days your car has been in the shop.");
                 Console.WriteLine("8. Exit the repair shop.");
-                Console.WriteLine("9. Add your car's information.");
+                Console.WriteLine("9. Add new car to the shop.");
 
                 string userChoice = Console.ReadLine().ToUpper();
                 Console.Clear();
@@ -50,54 +37,57 @@ namespace Choose_Your_Class
                 switch (userChoice)
                 {
                     case "1":
-                        //Console.WriteLine($"{car.GetColor()} {car.GetMake()} {car.GetModel()}\n" +
-                        //    $"Oil Life:{car.GetOil()}\nTire Pressure:{car.GetPressure()}");
-                        foreach (var item in myGarage.ListofCars)
-                        {
-                            Console.WriteLine($"{item.GetColor()} {item.GetMake()} {item.GetModel()}");
-                        }
+                        myCar = myGarage.SelectCar();
+                        Console.WriteLine($"Oil Level: {myCar.GetOil()}");
+                        Console.WriteLine($"Tire Pressure: {myCar.GetPressure()}");
                         break;
 
-                    //case "2":
-                    //    Console.WriteLine($"What color would you like to paint your car?");
-                    //    myCar.SetColor(Console.ReadLine());
-                    //    Console.WriteLine($"Your car is now {car.Color}");
-                    //    break;
+                    case "2":
+                        myCar = myGarage.SelectCar();
+                        Console.Clear();
+                        Console.WriteLine($"Enter the new color of this {myCar.Make} {myCar.Model}");
+                        string newColor = Console.ReadLine();
+                        myCar.SetColor(newColor);
+                        break;
 
-                    //case "3":
-                    //    car.AddPressure();
-                    //    if (car.GetPressure() > 50)
-                    //    {
-                    //        Console.WriteLine("WHoa there. Lets not over inflate them. Check your manual");
-                    //    }
-                    //    else
-                    //    Console.WriteLine("Air has been added to your tires");
-                    //    Console.WriteLine($"Your tire pressure is now  {car.GetPressure()}");
-                    //    break;
+                    case "3":
+                        myCar = myGarage.SelectCar();
+                        myCar.AddPressure();
+                        if (myCar.GetPressure() > 32)
+                        {
+                            Console.WriteLine("WHoa there. Lets not over inflate them. Check your manual");
+                        }
+                        else
+                            Console.WriteLine("Air has been added to your tires");
+                        Console.WriteLine($"Your tire pressure is now  {myCar.GetPressure()}");
+                        break;
 
-                    //case "4":
-                    //    Console.WriteLine("All the pressure in your tires has been let out.");
-                    //    car.DumpPressure();
-                    //    break;
+                    case "4":
+                        myCar = myGarage.SelectCar();
+                        myCar.DumpPressure();
+                        Console.WriteLine("All the pressure in your tires has been let out.");
+                        break;
 
-                    //case "5":
-                    //    car.ChangeOil();
-                    //    if (car.GetOil() > 70)
-                    //    {
-                    //        Console.WriteLine("Make sure you don't add to much.");
-                    //    }
-                    //    else
-                    //    Console.WriteLine("Your oil has been changed.");
-                    //    break;
+                    case "5":
+                        myCar = myGarage.SelectCar();
+                        myCar.ChangeOil();
+                        if (myCar.GetOil() > 70)
+                        {
+                            Console.WriteLine("Make sure you don't add to much.");
+                        }
+                        else
+                            Console.WriteLine("Your oil has been changed.");
+                        break;
 
-                    //case "6":
-                    //    Console.WriteLine("Your oil has been completely purged.");
-                    //    car.DumpOil();
-                    //    break;
+                    case "6":
+                        myCar = myGarage.SelectCar();
+                        Console.WriteLine("Your oil has been completely purged.");
+                        myCar.DumpOil();
+                        break;
 
-                    //case "7":
-                    //    Console.WriteLine($"Your car has been here for {car.DaysInShop} days.");
-                    //    break;
+                    case "7":
+                        Console.WriteLine($"Your car has been here for {myCar.DaysInShop} days.");
+                        break;
 
                     case "8":
                         ServiceShop = false;
